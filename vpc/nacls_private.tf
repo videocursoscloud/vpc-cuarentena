@@ -4,6 +4,10 @@ resource "aws_network_acl" "private" {
 	aws_subnet.private_1.id,
 	aws_subnet.private_2.id
   ]
+
+  tags = {
+    Name = "${local.project_name}-private"
+  }
 }
 ####################
 ##

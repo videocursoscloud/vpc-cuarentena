@@ -1,7 +1,7 @@
 terraform {
   backend "s3" {
     bucket = "vpc-cuarentena"
-    key    = "instances/"
+    key    = "instances/terraform.tfstate"
     region = "eu-west-1"
   }
 }
