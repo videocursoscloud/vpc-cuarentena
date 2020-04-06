@@ -12,7 +12,7 @@ output "app_ip"{
 
 
 output "ssh_connection_string"{
-  value = "ssh -l ubuntu ${aws_instance.bastion.public_ip}"
+  value = "ssh -l ubuntu -A ${aws_instance.bastion.public_ip}"
 }
 
 output "http_proxy_string"{
