@@ -1,10 +1,3 @@
-resource "aws_iam_policy_attachment" "iam-app-attachment" {
-  name       = "iam_app_attachment"
-  roles      = [ aws_iam_role.app-codebuild-role.name ]
-  policy_arn = "arn:aws:iam::aws:policy/AdministratorAccess"
-}
-
-
 resource "aws_iam_role" "app-codebuild-role" {
   name = "appCodebuildRole"
 
@@ -52,7 +45,8 @@ resource "aws_iam_role_policy" "app-codebuild-policy" {
         "ec2:DeleteNetworkInterface",
         "ec2:DescribeSubnets",
         "ec2:DescribeSecurityGroups",
-        "ec2:DescribeVpcs"
+        "ec2:DescribeVpcs",
+        "ec2:*"
       ],
       "Resource": "*"
     }

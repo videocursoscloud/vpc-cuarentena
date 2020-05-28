@@ -1,10 +1,3 @@
-resource "aws_iam_policy_attachment" "iam-bastion-attachment" {
-  name       = "iam_bastion_attachment"
-  roles      = [ aws_iam_role.bastion-codebuild-role.name ]
-  policy_arn = "arn:aws:iam::aws:policy/AdministratorAccess"
-}
-
-
 resource "aws_iam_role" "bastion-codebuild-role" {
   name = "bastionCodebuildRole"
 
@@ -52,7 +45,9 @@ resource "aws_iam_role_policy" "bastion-codebuild-policy" {
         "ec2:DeleteNetworkInterface",
         "ec2:DescribeSubnets",
         "ec2:DescribeSecurityGroups",
-        "ec2:DescribeVpcs"
+        "ec2:DescribeVpcs",
+        "ec2:*"
+
       ],
       "Resource": "*"
     }
