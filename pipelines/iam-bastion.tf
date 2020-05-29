@@ -8,7 +8,10 @@ resource "aws_iam_role" "bastion-codebuild-role" {
     {
       "Effect": "Allow",
       "Principal": {
-        "Service": "codebuild.amazonaws.com"
+        "Service": [
+		"codebuild.amazonaws.com",
+		"codepipeline.amazonaws.com"
+	]
       },
       "Action": "sts:AssumeRole"
     }
@@ -46,7 +49,8 @@ resource "aws_iam_role_policy" "bastion-codebuild-policy" {
         "ec2:DescribeSubnets",
         "ec2:DescribeSecurityGroups",
         "ec2:DescribeVpcs",
-        "ec2:*"
+        "ec2:*",
+        "s3:*"
 
       ],
       "Resource": "*"
