@@ -27,7 +27,7 @@ resource "aws_codepipeline" "codepipeline" {
         Owner  = "videocursoscloud"
         Repo   = "vpc-cuarentena-packer"
         Branch = "master"
-	PollForSourceChanges  = "false"
+	PollForSourceChanges  = "true"
       OAuthToken = "44cfe2b37cfa1bdcf35d07e3c439a925559ff9be"
 
       }
